@@ -57,7 +57,7 @@ const linksList = [
   },
   {
     title: 'Facebook',
-    caption: '@QuasarFramework',
+    caption: 'Ricoh Facebook Page',
     icon: 'public',
     link: 'https://www.facebook.com/RicohSG'
   },

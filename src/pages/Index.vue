@@ -13,7 +13,8 @@
             narrow-indicator
           >
             <q-tab name="digitalization" label="Digitalization Journey" />
-            <q-tab name="health_safety" label="Health & Safety" />
+            <q-tab name="office_safety" label="Office Safety" />
+            <q-tab name="office_clean" label="Office Cleanliness" />
           </q-tabs>
 
           <q-separator />
@@ -184,7 +185,64 @@
                </div>
             </q-tab-panel>
 
-            <q-tab-panel name="health_safety">
+            <q-tab-panel name="office_safety">              
+              <div class="text-h6">Capacity Management</div>
+              <q-list>
+                <q-item tag="label" v-ripple>
+                  <q-item-section avatar>
+                    <q-checkbox v-model="arrangement" val="true" color="teal" @click='onArrangement'/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Team Arrangements</q-item-label>
+                    <q-item-label caption>
+                      Is there a tool for arrangement of split teams for office physical presence?
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item tag="label" v-ripple>
+                  <q-item-section avatar>
+                    <q-checkbox v-model="socialDist" val="true" color="orange" @click='onSocialDist'/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Social Distancing</q-item-label>
+                    <q-item-label caption>
+                      Is there a tool for workstation social distancing compliance?
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item tag="label" v-ripple>
+                  <q-item-section avatar top>
+                    <q-checkbox v-model="capMgt" val="true" color="cyan" @click='onCapMgt'/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Capacity Management</q-item-label>
+                    <q-item-label caption>
+                      Is there a tool for capacity management?
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item tag="label" v-ripple>
+                  <q-item-section avatar top>
+                    <q-checkbox v-model="rec" val="true" color="purple" @click='onRec'/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Records</q-item-label>
+                    <q-item-label caption>
+                      Are the records kept digitally for accountability and accessability?
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+
+               <div class="q-pa-md q-gutter-sm">
+                Score {{totalSafety}} / 100
+               </div>
+            </q-tab-panel>
+
+            <q-tab-panel name="office_clean">
               <div class="text-h6">Office Cleanliness</div>
               <q-list>
                 <q-item tag="label" v-ripple>
@@ -248,60 +306,8 @@
                   </q-item-section>
                 </q-item>
               </q-list>
-              
-              <div class="text-h6">Capacity Management</div>
-              <q-list>
-                <q-item tag="label" v-ripple>
-                  <q-item-section avatar>
-                    <q-checkbox v-model="arrangement" val="true" color="teal" @click='onArrangement'/>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Team Arrangements</q-item-label>
-                    <q-item-label caption>
-                      Is there a tool for arrangement of split teams for office physical presence?
-                    </q-item-label>
-                  </q-item-section>
-                </q-item>
-
-                <q-item tag="label" v-ripple>
-                  <q-item-section avatar>
-                    <q-checkbox v-model="socialDist" val="true" color="orange" @click='onSocialDist'/>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Social Distancing</q-item-label>
-                    <q-item-label caption>
-                      Is there a tool for workstation social distancing compliance?
-                    </q-item-label>
-                  </q-item-section>
-                </q-item>
-
-                <q-item tag="label" v-ripple>
-                  <q-item-section avatar top>
-                    <q-checkbox v-model="capMgt" val="true" color="cyan" @click='onCapMgt'/>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Capacity Management</q-item-label>
-                    <q-item-label caption>
-                      Is there a tool for capacity management?
-                    </q-item-label>
-                  </q-item-section>
-                </q-item>
-
-                <q-item tag="label" v-ripple>
-                  <q-item-section avatar top>
-                    <q-checkbox v-model="rec" val="true" color="purple" @click='onRec'/>
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Records</q-item-label>
-                    <q-item-label caption>
-                      Are the records kept digitally for accountability and accessability?
-                    </q-item-label>
-                  </q-item-section>
-                </q-item>
-              </q-list>
-
                <div class="q-pa-md q-gutter-sm">
-                Score {{totalHealth}} / 100
+                Score {{totalClean}} / 100
                </div>
             </q-tab-panel>
           </q-tab-panels>
@@ -346,7 +352,8 @@ export default defineComponent({
   data () {
     return {
       totalDigi: 0,
-      totalHealth: 0
+      totalClean: 0,
+      totalSafety: 0
     }
   },
   computed: {    
@@ -389,31 +396,31 @@ export default defineComponent({
       this.chgMgt[0]=='true' ? this.totalDigi = this.totalDigi + 5 : this.totalDigi = this.totalDigi - 5
     },
     onCleanOff () {
-      this.cleanOffice[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.cleanOffice[0]=='true' ? this.totalClean = this.totalClean + 5 : this.totalClean = this.totalClean - 5
     },
     onSchClean () {
-      this.schClean[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.schClean[0]=='true' ? this.totalClean = this.totalClean + 5 : this.totalClean = this.totalClean - 5
     },
     onCleanList () {
-      this.cleanList[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.cleanList[0]=='true' ? this.totalClean = this.totalClean + 5 : this.totalClean = this.totalClean - 5
     },
     onFilSys () {
-      this.filSys[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.filSys[0]=='true' ? this.totalClean = this.totalClean + 5 : this.totalClean = this.totalClean - 5
     },
     onAhu () {
-      this.ahu[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.ahu[0]=='true' ? this.totalClean= this.totalClean + 5 : this.totalClean = this.totalClean - 5
     },
     onArrangement () {
-      this.arrangement[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.arrangement[0]=='true' ? this.totalSafety = this.totalSafety + 5 : this.totalSafety = this.totalSafety - 5
     },
     onSocialDist () {
-      this.socialDist[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.socialDist[0]=='true' ? this.totalSafety = this.totalSafety + 5 : this.totalSafety = this.totalSafety - 5
     },
     onCapMgt () {
-      this.capMgt[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.capMgt[0]=='true' ? this.totalSafety = this.totalSafety + 5 : this.totalSafety = this.totalSafety - 5
     },
     onRec () {
-      this.rec[0]=='true' ? this.totalHealth = this.totalHealth + 5 : this.totalHealth = this.totalHealth - 5
+      this.rec[0]=='true' ? this.totalSafety = this.totalSafety + 5 : this.totalSafety = this.totalSafety - 5
     }      
   }
 })
