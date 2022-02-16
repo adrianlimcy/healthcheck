@@ -55,12 +55,12 @@ const linksList = [
     icon: 'health_and_safety',
     link: '/'
   },
-  {
-    title: 'Facebook',
-    caption: 'Ricoh Facebook Page',
-    icon: 'public',
-    link: 'https://www.facebook.com/RicohSG'
-  },
+  // {
+  //   title: 'Facebook',
+  //   caption: 'Ricoh Facebook Page',
+  //   icon: 'public',
+  //   link: 'https://www.facebook.com/RicohSG'
+  // },
   {
     title: 'Benchmark',
     caption: 'How you fare against market',
