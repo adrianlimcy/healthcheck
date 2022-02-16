@@ -62,6 +62,12 @@ const linksList = [
     link: 'https://www.facebook.com/RicohSG'
   },
   {
+    title: 'Benchmark',
+    caption: 'How you fare against market',
+    icon: 'equalizer',
+    link: '/benchmark'
+  },
+  {
     title: 'About Health Check',
     caption: 'Community Ricoh project',
     icon: 'favorite',
