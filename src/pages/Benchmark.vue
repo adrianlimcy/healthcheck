@@ -31,9 +31,26 @@
         </h4>
         <bar-chart />
         <h4>
-          2. How Strong is Your Digital Backbone? Current IT Infrastructure’s Ability to Integrate Advanced Technologies*
+          2. How Strong is Your Digital Backbone? Current IT Infrastructure’s Ability to Integrate Advanced Technologies
         </h4>
         <digi-back-chart/>
+        <h4>
+          Insight
+        </h4>
+        <p>
+          While many executives may think highly of their current IT infrastructure’s ability to integrate advanced technologies—along with how their digital capabilities compare to those of their industry peers—the fact is, 
+          that’s not always reflective of reality. 
+          It actually depends on the companies' organizational size, and industry.
+        </p>
+        <p>
+          Views between tech (e.g. CIO, CISO, CTO) and non-tech (e.g. CEO, CFO, COO, CMO) C-suite executives, 
+          for example, often differed significantly: 78 percent of non-tech C-suite executives view their organization’s IT integration capabilities as “very good” or “excellent,” 
+          compared to only 48 percent of tech C-suite executives.
+        </p>
+        <p>
+          Similarly, 45 percent of non-tech C-suite executives rate their company’s digital capabilities as “advanced” compared to their peers, versus only 26 percent of those in the tech C-suite. 
+          These differences imply that executives, even in the same organization, don’t necessarily share the same awareness or understanding of their organization’s digital capabilities—with non-tech C-suite executives’ views tending to be more favorable than those in tech roles.
+        </p>
       </div>
     </div>
   </q-page>

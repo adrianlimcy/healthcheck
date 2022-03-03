@@ -46,6 +46,13 @@ export default {
           legend: {
             display: false
           },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          },
           title: {
             display: true,
             text: 'Strength of Digital Backbones'

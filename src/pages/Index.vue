@@ -13,8 +13,8 @@
             narrow-indicator
           >
             <q-tab name="digitalization" label="Digitalization Journey" />
-            <q-tab name="office_safety" label="Office Safety" />
-            <q-tab name="office_clean" label="Office Cleanliness" />
+            <!-- <q-tab name="office_safety" label="Office Safety" />
+            <q-tab name="office_clean" label="Office Cleanliness" /> -->
           </q-tabs>
 
           <q-separator />
@@ -180,12 +180,12 @@
                 </q-item>
               </q-list>
 
-               <div class="q-pa-md q-gutter-sm">
+               <!-- <div class="q-pa-md q-gutter-sm">
                 Score {{totalDigi}} / 100
-               </div>
+               </div> -->
             </q-tab-panel>
 
-            <q-tab-panel name="office_safety">              
+            <!-- <q-tab-panel name="office_safety">              
               <div class="text-h6">Capacity Management</div>
               <q-list>
                 <q-item tag="label" v-ripple>
@@ -309,8 +309,22 @@
                <div class="q-pa-md q-gutter-sm">
                 Score {{totalClean}} / 100
                </div>
-            </q-tab-panel>
+            </q-tab-panel> -->
           </q-tab-panels>
+        </q-card>
+
+        <q-card>
+          <div class="q-pa-md q-gutter-sm">
+            <h5>
+            Score {{totalDigi}} / 100
+            </h5>
+          </div>
+          <q-separator />
+          <div class="q-pa-md q-gutter-sm">
+            <h5>
+              {{publishedResult}}
+            </h5>
+          </div>
         </q-card>
       </div>
     </div>
@@ -353,10 +367,27 @@ export default defineComponent({
     return {
       totalDigi: 0,
       totalClean: 0,
-      totalSafety: 0
+      totalSafety: 0,
     }
   },
   computed: {    
+    publishedResult () {
+      if (this.totalDigi > 75) {
+        return 'Implementing Against a Digital Transformation Strategy.\
+        Great! You are on your way. Why not consider some of Ricoh\'s offerings to help enhance the journey?'
+      } else if (this.totalDigi > 50) {
+        return 'Developed a Digital Transformation Strategy, but have not implemented it yet.\
+        Would you consider Ricoh\'s project management and solutions to help enhance the strategy?'
+      } else if (this.totalDigi > 20) {
+        return 'Currently developing a Digital Transformation Strategy.\
+        Please consider Ricoh\'s many solutions like scanning, archiving, indexing to be part of the strategy.'
+      } else if (this.totalDigi > 10) {
+        return 'Want to develop a Digital Transformation Strategy, but have not started yet.\
+        Would you like some assistance from your account representative or our digital consultants to help develop a plan?'
+      } else {
+        return ''
+      }
+    }
   },
   methods: {
     onPaperRec () {
